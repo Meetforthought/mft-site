@@ -2,9 +2,11 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/azec6sv4xsds/public_html/test
-    # Create backup of existing files
-    - /bin/mkdir -p $DEPLOYPATH/backup_$(date +%Y%m%d_%H%M%S)
-    - /bin/cp -R $DEPLOYPATH/* $DEPLOYPATH/backup_$(date +%Y%m%d_%H%M%S)
+    - /bin/cp -R assets $DEPLOYPATH
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp styles.css $DEPLOYPATH
+    - /bin/cp script.js $DEPLOYPATH
+    - /bin/cp .cpanel.yml $DEPLOYPATH
     
     # Clear cache files if any
     - /bin/rm -rf $DEPLOYPATH/tmp/*
